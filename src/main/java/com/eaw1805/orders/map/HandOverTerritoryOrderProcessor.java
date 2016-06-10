@@ -1,14 +1,17 @@
 package com.eaw1805.orders.map;
 
 import com.eaw1805.data.constants.ProductionSiteConstants;
+import com.eaw1805.data.constants.ProfileConstants;
 import com.eaw1805.data.constants.RegionConstants;
 import com.eaw1805.data.constants.RelationConstants;
 import com.eaw1805.data.managers.NationManager;
+import com.eaw1805.data.managers.ReportManager;
 import com.eaw1805.data.managers.army.BattalionManager;
 import com.eaw1805.data.managers.map.BarrackManager;
 import com.eaw1805.data.managers.map.SectorManager;
 import com.eaw1805.data.model.Nation;
 import com.eaw1805.data.model.NationsRelation;
+import com.eaw1805.data.model.Report;
 import com.eaw1805.data.model.army.Battalion;
 import com.eaw1805.data.model.map.Barrack;
 import com.eaw1805.data.model.map.Sector;

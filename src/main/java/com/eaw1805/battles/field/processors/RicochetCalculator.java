@@ -10,7 +10,7 @@ import java.util.Set;
  * Finds the sectors where ricochet fire is inflicted. In the following map, A
  * is the attacker, Tn is a target, Rn is the main ricochet sector, rn is the
  * secondary ricochet sector.
- * <p/>
+ * <p>
  * <pre>
  * **********************************
  *  |  |  |  |  |  |  |  |  |  |  *

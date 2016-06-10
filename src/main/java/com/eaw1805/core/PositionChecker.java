@@ -9,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Transaction;
 
+import java.util.*;
+
 /**
  * Weekly notification of inactive positions.
  */

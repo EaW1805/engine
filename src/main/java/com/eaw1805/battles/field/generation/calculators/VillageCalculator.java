@@ -32,8 +32,6 @@ public class VillageCalculator {
 
     /**
      * Adds the villages to appear in the setup areas.
-     *
-     * @param fbMap the map
      */
     public void addSetupAreaVillages() {
 

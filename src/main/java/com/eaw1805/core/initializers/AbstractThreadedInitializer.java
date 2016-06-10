@@ -43,9 +43,10 @@ public abstract class AbstractThreadedInitializer
      * to create a thread, starting the thread causes the object's
      * <code>run</code> method to be called in that separately executing
      * thread.
-     * <p/>
+     * <p>
      * The general contract of the method <code>run</code> is that it may
      * take any action whatsoever.
+     * </p>
      *
      * @see java.lang.Thread#run()
      */

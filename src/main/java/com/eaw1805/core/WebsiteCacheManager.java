@@ -1,16 +1,9 @@
 package com.eaw1805.core;
 
-import com.eaw1805.data.constants.CacheConstants;
-import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
-import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlImageInput;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.eaw1805.core.support.QuietCssErrorHandler;
 import com.eaw1805.core.support.SilentIncorrectnessListener;
 import com.eaw1805.data.HibernateUtil;
+import com.eaw1805.data.constants.CacheConstants;
 import com.eaw1805.data.managers.GameManager;
 import com.eaw1805.data.managers.NationManager;
 import com.eaw1805.data.managers.UserGameManager;
@@ -18,6 +11,13 @@ import com.eaw1805.data.model.Engine;
 import com.eaw1805.data.model.Game;
 import com.eaw1805.data.model.Nation;
 import com.eaw1805.data.model.UserGame;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
+import com.gargoylesoftware.htmlunit.Page;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlForm;
+import com.gargoylesoftware.htmlunit.html.HtmlImageInput;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import net.sourceforge.htmlunit.corejs.javascript.EvaluatorException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,7 +25,6 @@ import org.hibernate.Transaction;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -46,7 +45,7 @@ public class WebsiteCacheManager
     /**
      * The Web Client Object.
      */
-    private final WebClient webClient = new WebClient(BrowserVersion.FIREFOX_2);
+    private final WebClient webClient = new WebClient(BrowserVersion.FIREFOX_45);
 
     /**
      * Default Constructor.
@@ -55,7 +54,7 @@ public class WebsiteCacheManager
      */
     public WebsiteCacheManager(final boolean javaEnabled) {
         //Initialize Web Client.
-        webClient.setJavaScriptEnabled(javaEnabled);
+        // webClient.setJavaScriptEnabled(javaEnabled);
         webClient.setIncorrectnessListener(new SilentIncorrectnessListener());
         webClient.setCssErrorHandler(new QuietCssErrorHandler());
         webClient.setAjaxController(new NicelyResynchronizingAjaxController());

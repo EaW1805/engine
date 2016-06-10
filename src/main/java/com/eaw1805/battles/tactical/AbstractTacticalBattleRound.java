@@ -75,7 +75,7 @@ public abstract class AbstractTacticalBattleRound
     public final static int ROUND_HANDCOMBAT_D = 11;
 
     /**
-     * Round 12: Disengagement long-range combat (Artillery & Skirmish units only).
+     * Round 12: Disengagement long-range combat (Artillery and Skirmish units only).
      */
     public final static int ROUND_HANDCOMBAT_LR = 12;
 

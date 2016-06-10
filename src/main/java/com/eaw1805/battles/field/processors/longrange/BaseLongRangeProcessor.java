@@ -22,9 +22,9 @@ public abstract class BaseLongRangeProcessor {
     /**
      * Constructor.
      *
-     * @param movementProcessor
+     * @param longRangeProcessor
      */
-    public BaseLongRangeProcessor(LongRangeProcessor longRangeProcessor) {
+    public BaseLongRangeProcessor(final LongRangeProcessor longRangeProcessor) {
         this.longRangeProcessor = longRangeProcessor;
         additionalOrderBrigadeFilter = new AdditionalOrderBrigadeFilter();
     }
@@ -35,7 +35,7 @@ public abstract class BaseLongRangeProcessor {
      * @param nation the nation
      * @return the side number (0 or 1)
      */
-    protected int findSide(Nation nation) {
+    protected int findSide(final Nation nation) {
         return longRangeProcessor.getParent().getBattleField().getSide(0).contains(nation) ? 0 : 1;
     }
 

@@ -20,9 +20,10 @@ import java.io.InputStreamReader;
 
 /**
  * Test broadcasting mechanisms.
- * <p/>
+ * <p>
  * oauth.accessToken=417188656-sDtDKXAYwjgNqKNMBPvVByuHZS3NoA0gKjcI1G5G
  * oauth.accessTokenSecret=q3faOcK3WISAoKdnteGx2iGhPyNnLrNndfgz5TrtQ
+ * </p>
  */
 public class BroadcastTest {
 

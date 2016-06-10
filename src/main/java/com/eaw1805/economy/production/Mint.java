@@ -5,9 +5,10 @@ import com.eaw1805.economy.AbstractMaintenance;
 
 /**
  * The Mint production site.
- * <p/>
+ * <p>
  * Production: between 10 and 20units of Precious Metals will be minted to
  * money, each unit will yield between 30,000 and 45,000 money.
+ * </p>
  */
 public class Mint
         extends AbstractProductionSite {

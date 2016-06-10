@@ -22,9 +22,9 @@ public class BushCalculator {
     /**
      * Adds forests of the specified size until they cover the specified percentage.
      *
-     * @param targetBushSectors the number of sectors the bush must cover
-     * @param minForestSize     the minimum forest size
-     * @param maxForestSize     the maximum forest size
+     * @param targetBushSectors the number of sectors the bush must cover.
+     * @param minBushSize       the minimum bush size.
+     * @param maxBushSize       the maximum bush size.
      */
     public void addBushBySectorsNumber(int targetBushSectors, int minBushSize, int maxBushSize) {
 

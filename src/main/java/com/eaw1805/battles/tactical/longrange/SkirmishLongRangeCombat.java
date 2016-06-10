@@ -4,7 +4,7 @@ import com.eaw1805.battles.tactical.TacticalBattleProcessor;
 import com.eaw1805.data.model.army.Battalion;
 
 /**
- * All skirmishing units with range > 7 fire.
+ * All skirmishing units with range bigger than 7 fire.
  */
 public class SkirmishLongRangeCombat
         extends ArtilleryLongRangeCombat {

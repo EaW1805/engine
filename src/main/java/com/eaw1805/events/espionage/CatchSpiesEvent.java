@@ -17,10 +17,11 @@ import java.util.List;
 
 /**
  * Implements Catch Spies Events.
- * <p/>
+ * <p>
  * While situated at a hostile barrack (i.e. a barrack that belongs to a country that has 'war' relations
  * towards your country), the spy runs a risk of being revealed. The chance of your spy being revealed and
  * captured is 5% per turn.
+ * </p>
  */
 public class CatchSpiesEvent
         extends AbstractEventProcessor

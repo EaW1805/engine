@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Implementation of the Bresenham line algorithm.
- * @see {@link http://en.wikipedia.org/wiki/Bresenham's_line_algorithm}
+ * http://en.wikipedia.org/wiki/Bresenham's_line_algorithm
  * @author fragkakis
  *
  */

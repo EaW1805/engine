@@ -65,9 +65,9 @@ public abstract class BaseOrderMeleeProcessor {
     /**
      * Constructor.
      *
-     * @param movementProcessor
+     * @param meleeProcessor
      */
-    public BaseOrderMeleeProcessor(MeleeProcessor meleeProcessor) {
+    public BaseOrderMeleeProcessor(final MeleeProcessor meleeProcessor) {
         this.meleeProcessor = meleeProcessor;
         additionalOrderBrigadeFilter = new AdditionalOrderBrigadeFilter();
     }

@@ -1,23 +1,26 @@
 package com.eaw1805.events;
 
+import com.eaw1805.data.HibernateUtil;
 import com.eaw1805.data.constants.NationConstants;
 import com.eaw1805.data.constants.RegionConstants;
 import com.eaw1805.data.constants.ReportConstants;
 import com.eaw1805.data.constants.VPConstants;
 import com.eaw1805.data.managers.GameManager;
+import com.eaw1805.data.managers.NationManager;
 import com.eaw1805.data.managers.ReportManager;
+import com.eaw1805.data.managers.economy.TradeCityManager;
+import com.eaw1805.data.managers.map.RegionManager;
 import com.eaw1805.data.managers.map.SectorManager;
 import com.eaw1805.data.model.Game;
 import com.eaw1805.data.model.Nation;
 import com.eaw1805.data.model.Report;
+import com.eaw1805.data.model.economy.TradeCity;
 import com.eaw1805.data.model.map.Position;
 import com.eaw1805.data.model.map.Sector;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Accumulates VPs.

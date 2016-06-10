@@ -5,8 +5,9 @@ import com.eaw1805.economy.AbstractMaintenance;
 
 /**
  * The Plantation production site.
- * <p/>
+ * <p>
  * between 90 and 150 Colonial Goods.
+ * </p>
  */
 public class Plantation
         extends AbstractProductionSite {

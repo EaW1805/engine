@@ -16,7 +16,6 @@ public abstract class BaseBothSidesProcessor extends BaseAttackProcessor {
     /**
      * The most important class of the processor. To be invoked once per side per round.
      *
-     * @param side
      * @param round
      */
     public abstract void process(int round);

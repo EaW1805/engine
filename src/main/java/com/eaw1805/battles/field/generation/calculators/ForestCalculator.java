@@ -28,11 +28,9 @@ public class ForestCalculator {
     /**
      * Adds forests of the specified size until they cover the specified percentage.
      *
-     * @param targetForestSectors the number of sectors the forest must cover
-     * @param minForestSize       the minimum forest size
-     * @param maxForestSize       the maximum forest size
+     * @param percentage percentage to cover with forest.
      */
-	public void addForestsByPercentage(int percentage) {
+	public void addForestsByPercentage(final int percentage) {
 
 		Set<FieldBattleSector> emptySectors = MapUtils.getAllEmptySectors(fbMap);
 		int targetForestSectors = emptySectors.size() * percentage / 100; 

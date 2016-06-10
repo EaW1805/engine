@@ -14,13 +14,7 @@ import com.eaw1805.battles.tactical.morale.MoraleCheckIntermediate;
 import com.eaw1805.battles.tactical.morale.MoraleCheckLate;
 import com.eaw1805.battles.tactical.result.RoundStatistics;
 import com.eaw1805.data.HibernateUtil;
-import com.eaw1805.data.constants.AchievementConstants;
-import com.eaw1805.data.constants.NewsConstants;
-import com.eaw1805.data.constants.ProductionSiteConstants;
-import com.eaw1805.data.constants.ProfileConstants;
-import com.eaw1805.data.constants.RegionConstants;
-import com.eaw1805.data.constants.ReportConstants;
-import com.eaw1805.data.constants.VPConstants;
+import com.eaw1805.data.constants.*;
 import com.eaw1805.data.managers.AchievementManager;
 import com.eaw1805.data.managers.GameManager;
 import com.eaw1805.data.managers.NationManager;
@@ -32,6 +26,7 @@ import com.eaw1805.data.managers.UserManager;
 import com.eaw1805.data.managers.army.BrigadeManager;
 import com.eaw1805.data.managers.army.CommanderManager;
 import com.eaw1805.data.managers.battles.TacticalBattleReportManager;
+import com.eaw1805.data.managers.economy.WarehouseManager;
 import com.eaw1805.data.managers.map.ProductionSiteManager;
 import com.eaw1805.data.managers.map.RegionManager;
 import com.eaw1805.data.managers.map.SectorManager;
@@ -48,6 +43,7 @@ import com.eaw1805.data.model.army.Brigade;
 import com.eaw1805.data.model.army.Commander;
 import com.eaw1805.data.model.army.comparators.BattalionExperience;
 import com.eaw1805.data.model.battles.TacticalBattleReport;
+import com.eaw1805.data.model.economy.Warehouse;
 import com.eaw1805.data.model.map.Position;
 import com.eaw1805.data.model.map.Region;
 import com.eaw1805.data.model.map.Sector;
@@ -276,7 +272,7 @@ public class TacticalBattleProcessor
      */
     public List<RoundStatistics> process() {
         final Map<Integer, RoundStatistics> statMap = new HashMap<Integer, RoundStatistics>();
-        final List<RoundStatistics> rStats = new ArrayList<empire.battles.tactical.result.RoundStatistics>();
+        final List<RoundStatistics> rStats = new ArrayList<RoundStatistics>();
 
         LOGGER.info("Processing tactical battle in "
                 + field.getTerrain().getName()
@@ -340,7 +336,7 @@ public class TacticalBattleProcessor
 
         // Round 1: Artillery long-range combat (Heavy and Light artillery only)
         LOGGER.debug("Round 1: Artillery long-range combat (Artillery fire)");
-        final empire.battles.tactical.longrange.ArtilleryLongRangeCombat round1 = new ArtilleryLongRangeCombat(this);
+        final ArtilleryLongRangeCombat round1 = new ArtilleryLongRangeCombat(this);
         rstat = round1.process();
         if (rstat.getSideStat()[0][0] + rstat.getSideStat()[1][0] > 0) {
             rStats.add(rstat);
@@ -457,7 +453,7 @@ public class TacticalBattleProcessor
                 statMap.put(rstat.getRound(), rstat);
             }
 
-            // Round 12: Disengagement long-range combat (Artillery & Skirmish units only)
+            // Round 12: Disengagement long-range combat (Artillery and Skirmish units only)
             LOGGER.debug("Round 12: Disengagement long-range combat (Artillery & Skirmish units only)");
             final DisengagementLongRangeCombat round12 = new DisengagementLongRangeCombat(this);
             rstat = round12.process();
@@ -898,8 +894,9 @@ public class TacticalBattleProcessor
      * - if combat points (Artillery+pioneers) of attacker at end of round 2 are equal/greater than the number of points required for breach, 10% the fort will degrade 1 level.
      * - if combat points (Artillery+pioneers) of attacker at end of round 2 are TWICE GREATER than the number of points required for breach, 25% the fort will degrade 1 level and 10% will degrade two levels.
      * - if combat points (Artillery+pioneers) of attacker at end of round 2 are THRICE GREATER than the number of points required for breach, 45% the fort will degrade 1 level and 25% will degrade two levels.
-     * <p/>
+     * <p>
      * All above percentages are DOUBLED if the owner of the fortress LOST the battle. If it was a draw/victory, apply the above percentages.
+     * </p>
      *
      * @param totArtilleryCP the combat points (Artillery+pioneers) of attacker at end of round 2.
      */
@@ -1113,7 +1110,6 @@ public class TacticalBattleProcessor
      * @param subject      the subject of the news entry.
      * @param type         the type of the news entry.
      * @param announcement the value of the news entry.
-     * @return the ID of the new entry.
      */
     protected void news(final Game game, final Set<Nation> nation, final Nation subject, final int type, final String announcement) {
         int baseNewsId = 0;

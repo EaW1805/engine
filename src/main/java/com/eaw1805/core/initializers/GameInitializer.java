@@ -1015,7 +1015,7 @@ public class GameInitializer
 
         // Set initial rates based on region
         if (thisCity.getPosition().getRegion().getId() == EUROPE) {
-            qteGoods.put(GOOD_MONEY, 500000 + (caller.getRandomGen().nextInt(46 + 1) * 500000 + caller.getRandomGen().nextInt(100000));
+            qteGoods.put(GOOD_MONEY, 500000 + (caller.getRandomGen().nextInt(46 + 1) * 500000 + caller.getRandomGen().nextInt(100000)));
 
             qteGoods.put(GOOD_INPT, getTradeRate());
             qteGoods.put(GOOD_FOOD, getTradeRate());

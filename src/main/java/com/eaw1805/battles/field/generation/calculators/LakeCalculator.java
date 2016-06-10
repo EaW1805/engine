@@ -21,9 +21,7 @@ public class LakeCalculator {
 
 
     /**
-     * Adds a lake to the field battle map
-     *
-     * @param fbMap
+     * Adds a lake to the field battle map.
      */
     public void addLake() {
 

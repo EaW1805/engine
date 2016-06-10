@@ -29,7 +29,7 @@ public class TownCalculator {
      * @param fbMap       the field battle map
      * @param battleField the battlefield
      */
-    public TownCalculator(FieldBattleMap fbMap, BattleField battleField) {
+    public TownCalculator(final FieldBattleMap fbMap, final BattleField battleField) {
         this.fbMap = fbMap;
         this.battleField = battleField;
 
@@ -64,10 +64,9 @@ public class TownCalculator {
     /**
      * Adds the specified number of towns to the terrain.
      *
-     * @param fbMap         the map
-     * @param numberOfTowns the number of towns
+     * @param numberOfTowns the number of towns.
      */
-    public void addTowns(int numberOfTowns) {
+    public void addTowns(final int numberOfTowns) {
 
         switch (numberOfTowns) {
             case 1:
@@ -103,7 +102,7 @@ public class TownCalculator {
 
     }
 
-    private Set<FieldBattleSector> addTownToSide(int sideToPlaceTheTown) {
+    private Set<FieldBattleSector> addTownToSide(final int sideToPlaceTheTown) {
         Set<FieldBattleSector> townSectors;
         // 50% the town is a pararellogram
         if (MathUtils.generateRandomIntInRange(1, 100) <= 50) {
@@ -168,9 +167,9 @@ public class TownCalculator {
     /**
      * Adds a town to the terrain.
      *
-     * @param fbMap the map
+     * @param side the side to which to add the town.
      */
-    private Set<FieldBattleSector> addRandomTown(int side) {
+    private Set<FieldBattleSector> addRandomTown(final int side) {
 
         FieldBattleSector townCenter = findPossibleTownCenter(side);
 

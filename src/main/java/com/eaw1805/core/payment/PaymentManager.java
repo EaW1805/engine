@@ -32,11 +32,13 @@ public final class PaymentManager {
      */
     private static PaymentManager ourInstance = null;
 
+    private final Map<User, List<UserGame>> positions;
+
     /**
      * Private constructor.
      */
     private PaymentManager() {
-        // do nothing
+        positions = new HashMap<User, List<UserGame>>();
     }
 
     public static PaymentManager getInstance() {
@@ -489,7 +491,7 @@ public final class PaymentManager {
         PaymentHistoryManager.getInstance().add(adminUserPayment);
     }
 
-    public void chargeUser(final UserGame position, final String paymentDescr) {
+    public void chargeUser(final UserGame position, final int initialCost, final String paymentDescr) {
         final StringBuilder paymentText = new StringBuilder();
         paymentText.append(position.getNation().getName());
         paymentText.append(" / ");
@@ -500,11 +502,11 @@ public final class PaymentManager {
         final User user = UserManager.getInstance().getByID(position.getUserId());
         final User admin = UserManager.getInstance().getByID(2);
 
-        int remains = position.getCost();
+        int remains = initialCost;
 
         if (user == null) {
             LOGGER.error("check this, null user? " + position.getUserId());
-            mainTrans.commit();
+            //mainTrans.commit();
             return;
         }
 
